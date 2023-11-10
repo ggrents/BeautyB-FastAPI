@@ -22,3 +22,4 @@ class Master(Base):
 
     service: Mapped["Area"] = relationship(back_populates="masters")
     tools: Mapped[List["Tool"]] = relationship(back_populates="master")
+    records: Mapped[List["Record"]] = relationship(back_populates="master")

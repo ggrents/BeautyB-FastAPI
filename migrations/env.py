@@ -12,6 +12,7 @@ from salon.entities.models.area import Area
 from salon.entities.models.master import Master
 from salon.entities.models.service import Service
 from salon.entities.models.tool import Tool
+from salon.entities.models.record import Record
 
 
 # this is the Alembic Config object, which provides

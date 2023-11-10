@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, List
 
 from sqlalchemy import String, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
@@ -16,4 +16,6 @@ class Service(Base):
     title: Mapped[str] = mapped_column(String(64), index=True)
     price: Mapped[float] = mapped_column()
     area_id: Mapped[int] = mapped_column(ForeignKey("areas.id"))
+
     area: Mapped["Area"] = relationship(back_populates="services")
+    records: Mapped[List["Record"]] = relationship(back_populates="service")
