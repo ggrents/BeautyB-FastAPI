@@ -7,11 +7,12 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from alembic import context
 
-from salon.entities.models.area import Area
-from salon.entities.models.service import Service
-
-
 from salon.database import Base
+from salon.entities.models.area import Area
+from salon.entities.models.master import Master
+from salon.entities.models.service import Service
+from salon.entities.models.tool import Tool
+
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

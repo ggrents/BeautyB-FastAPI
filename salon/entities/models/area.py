@@ -16,3 +16,4 @@ class Area(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     title: Mapped[str] = mapped_column(String(64), index=True)
     services: Mapped[List["Service"]] = relationship(back_populates="area")
+    masters: Mapped[List["Master"]] = relationship(back_populates="area")
