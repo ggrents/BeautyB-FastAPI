@@ -3,7 +3,6 @@ from typing import List
 
 from pydantic import BaseModel
 
-from administration.entities.schemas.area import GetArea
 from administration.entities.schemas.service import GetService
 from administration.entities.schemas.tool import GetTool
 
@@ -26,6 +25,6 @@ class GetMaster(BaseModel):
     address: str
     phone: str
     salary: decimal.Decimal
-    area: GetArea
+    area_id: int
     services: List[GetService]
     tools: List[GetTool]

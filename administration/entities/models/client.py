@@ -16,4 +16,5 @@ class Client(Base):
     phone: Mapped[str] = mapped_column(String(64), index=True)
     image_path: Mapped[Optional[str]] = mapped_column(String(140))
 
+    feedback : Mapped["Feedback"] = relationship(back_populates="client")
     records: Mapped[List["Record"]] = relationship(back_populates="client")

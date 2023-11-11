@@ -15,6 +15,7 @@ from administration.entities.models.tool import Tool
 from administration.entities.models.record import Record
 from administration.entities.models.client import Client
 from administration.entities.models.spot import Spot
+from administration.entities.models.feedback import Feedback
 
 
 # this is the Alembic Config object, which provides

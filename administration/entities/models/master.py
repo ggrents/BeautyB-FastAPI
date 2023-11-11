@@ -20,6 +20,7 @@ class Master(Base):
     salary: Mapped[decimal.Decimal] = mapped_column()
     area_id : Mapped[int] = mapped_column(ForeignKey("areas.id"))
 
+    area: Mapped["Area"] = relationship(back_populates="masters")
     service: Mapped["Area"] = relationship(back_populates="masters")
     tools: Mapped[List["Tool"]] = relationship(back_populates="master")
     spots: Mapped[List["Spot"]] = relationship(back_populates="master")

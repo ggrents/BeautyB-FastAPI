@@ -1,6 +1,7 @@
 from sqlalchemy import select, Insert, Update
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from administration.entities.models.area import Area
 from administration.entities.models.service import Service
 from administration.entities.schemas.service import ServiceCreateUpdate
 
@@ -17,7 +18,7 @@ async def get_service_by_id(db: AsyncSession, service_id: int):
 
 
 async def get_services_by_area(db: AsyncSession, area_id: int):
-    query = select(Service).where(area_id=area_id)
+    query = select(Service).join(Area, Service.area).where(area_id=area_id)
     result = await db.execute(query)
     return result.scalars().all()
 

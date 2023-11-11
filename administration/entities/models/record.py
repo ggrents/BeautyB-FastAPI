@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import mapped_column, Mapped, relationship
 
@@ -14,4 +12,5 @@ class Record(Base):
     spot_id: Mapped[int] = mapped_column(ForeignKey("spots.id"))
 
     client: Mapped["Client"] = relationship(back_populates="records")
-    spot: Mapped["Spot"] = relationship()
+    spot: Mapped["Spot"] = relationship(back_populates="record")
+    feedback: Mapped["Feedback"] = relationship(back_populates="record")
