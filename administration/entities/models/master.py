@@ -5,6 +5,10 @@ from sqlalchemy import String, ForeignKey, Boolean
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from administration.database import Base
+#from administration.entities.models.area import Area
+#from administration.entities.models.service import Service
+# from administration.entities.models.spot import Spot
+# from administration.entities.models.tool import Tool
 
 
 class Master(Base):
@@ -20,7 +24,7 @@ class Master(Base):
     salary: Mapped[decimal.Decimal] = mapped_column()
     area_id : Mapped[int] = mapped_column(ForeignKey("areas.id"))
 
-    area: Mapped["Area"] = relationship(back_populates="masters")
-    service: Mapped["Area"] = relationship(back_populates="masters")
-    tools: Mapped[List["Tool"]] = relationship(back_populates="master")
-    spots: Mapped[List["Spot"]] = relationship(back_populates="master")
+    area =  relationship("Area", back_populates="masters")
+    #service =  relationship("Service", back_populates="masters")
+    #tools = relationship("Tool", back_populates="master")
+    spots = relationship("Spot", back_populates="master")

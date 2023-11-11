@@ -20,13 +20,13 @@ async def get_spot_by_id(db: AsyncSession, spot_id: int):
 
 
 async def get_spots_by_master(db: AsyncSession, master_id: int):
-    query = select(Spot).join(Master, Spot.master).where(master_id=master_id)
+    query = select(Spot).join(Master, Spot.master_id == Master.id).where(master_id=master_id)
     result = await db.execute(query)
     return result.scalars().all()
 
 
 async def get_spots_by_service(db: AsyncSession, service_id: int):
-    query = select(Spot).join(Service, Spot.service).where(service_id=service_id)
+    query = select(Spot).join(Service, Spot.service_id == Service.id).where(service_id=service_id)
     result = await db.execute(query)
     return result.scalars().all()
 

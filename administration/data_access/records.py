@@ -18,7 +18,7 @@ async def get_record_by_id(db: AsyncSession, record_id: int):
 
 
 async def get_records_by_client(db: AsyncSession, client_id: int):
-    query = select(Record).join(Client, Record.client).where(client_id=client_id)
+    query = select(Record).join(Client, Record.client_id == Client.id).where(client_id=client_id)
     result = await db.execute(query)
     return result.scalars().all()
 

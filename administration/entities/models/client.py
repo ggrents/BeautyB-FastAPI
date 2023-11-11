@@ -3,6 +3,8 @@ from sqlalchemy import ForeignKey, String, Boolean
 from sqlalchemy.orm import mapped_column, Mapped, relationship
 
 from administration.database import Base
+from administration.entities.models.feedback import Feedback
+#from administration.entities.models.record import Record
 
 
 class Client(Base):
@@ -16,5 +18,5 @@ class Client(Base):
     phone: Mapped[str] = mapped_column(String(64), index=True)
     image_path: Mapped[Optional[str]] = mapped_column(String(140))
 
-    feedback : Mapped["Feedback"] = relationship(back_populates="client")
-    records: Mapped[List["Record"]] = relationship(back_populates="client")
+    #feedback = relationship(Feedback, back_populates="client")
+    records = relationship("Record", back_populates="client")

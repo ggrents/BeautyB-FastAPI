@@ -2,6 +2,7 @@ from sqlalchemy import ForeignKey, String
 from sqlalchemy.orm import mapped_column, Mapped, relationship
 
 from administration.database import Base
+#from administration.entities.models.record import Record
 
 
 class Feedback(Base):
@@ -10,4 +11,5 @@ class Feedback(Base):
     estimation: Mapped[int] = mapped_column()
     comment: Mapped[str] = mapped_column(String(300))
     record_id: Mapped[int] = mapped_column(ForeignKey("records.id"))
-    record: Mapped["Record"] = relationship(back_populates="feedback")
+
+    record = relationship("Record", back_populates="feedback")

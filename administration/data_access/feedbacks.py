@@ -26,7 +26,8 @@ async def get_feedback_by_record(db: AsyncSession, record_id: int):
 
 
 async def get_feedbacks_by_client(db: AsyncSession, client_id: int):
-    query = select(Feedback).join(Record, Feedback.record).join(Client, Client.feedback).where(Client.id == client_id)
+    query = (select(Feedback).join(Record, Feedback.record_id == Record.id).join
+             (Client, Record.client_id == Client.id).where(Client.id == client_id))
     result = await db.execute(query)
     return result.scalars().all()
 

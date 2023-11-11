@@ -4,10 +4,8 @@ from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from administration.database import Base
-
-
-if TYPE_CHECKING:
-    from administration.entities.models.service import Service
+from administration.entities.models.service import Service
+from administration.entities.models.master import Master
 
 
 class Area(Base):
@@ -15,5 +13,5 @@ class Area(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     title: Mapped[str] = mapped_column(String(64), index=True)
-    services: Mapped[List["Service"]] = relationship(back_populates="area")
-    masters: Mapped[List["Master"]] = relationship(back_populates="area")
+    services = relationship(Service, back_populates="area")
+    masters = relationship(Master, back_populates="area")
