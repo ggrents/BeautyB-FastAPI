@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-from salon.entities.schemas.master import GetMaster
+from administration.entities.schemas.master import GetMaster
 
 
 class ToolCreateUpdate(BaseModel):

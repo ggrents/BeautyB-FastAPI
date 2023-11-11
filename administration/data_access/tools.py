@@ -1,8 +1,8 @@
 from sqlalchemy import select, Insert, Update
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from salon.entities.models.tool import Tool
-from salon.entities.schemas.tool import ToolCreateUpdate
+from administration.entities.models.tool import Tool
+from administration.entities.schemas.tool import ToolCreateUpdate
 
 
 async def get_tools(db: AsyncSession):

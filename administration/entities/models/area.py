@@ -3,11 +3,11 @@ from typing import TYPE_CHECKING, List
 from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from salon.database import Base
+from administration.database import Base
 
 
 if TYPE_CHECKING:
-    from salon.entities.models.service import Service
+    from administration.entities.models.service import Service
 
 
 class Area(Base):

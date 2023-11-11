@@ -3,7 +3,7 @@ from typing import AsyncGenerator
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine, async_sessionmaker
 from sqlalchemy.ext.declarative import DeclarativeMeta, declarative_base
 
-from salon.settings import DATABASE_URL
+from administration.settings import DATABASE_URL
 
 Base: DeclarativeMeta = declarative_base()
 

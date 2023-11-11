@@ -3,9 +3,9 @@ from typing import List
 
 from pydantic import BaseModel
 
-from salon.entities.schemas.area import GetArea
-from salon.entities.schemas.service import GetService
-from salon.entities.schemas.tool import GetTool
+from administration.entities.schemas.area import GetArea
+from administration.entities.schemas.service import GetService
+from administration.entities.schemas.tool import GetTool
 
 
 class MasterCreateUpdate(BaseModel):

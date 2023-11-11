@@ -1,7 +1,7 @@
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from salon.entities.models.area import Area
+from administration.entities.models.area import Area
 
 
 async def get_areas(db: AsyncSession):

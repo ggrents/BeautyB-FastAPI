@@ -1,8 +1,8 @@
 from sqlalchemy import select, Insert, Update
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from salon.entities.models.service import Service
-from salon.entities.schemas.service import ServiceCreateUpdate
+from administration.entities.models.service import Service
+from administration.entities.schemas.service import ServiceCreateUpdate
 
 
 async def get_services(db: AsyncSession):

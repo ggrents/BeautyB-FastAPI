@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-from salon.entities.schemas.area import GetArea
+from administration.entities.schemas.area import GetArea
 
 
 class ServiceCreateUpdate(BaseModel):

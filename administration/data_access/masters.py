@@ -1,8 +1,8 @@
 from sqlalchemy import select, Insert, Update
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from salon.entities.models.master import Master
-from salon.entities.schemas.master import MasterCreateUpdate
+from administration.entities.models.master import Master
+from administration.entities.schemas.master import MasterCreateUpdate
 
 
 async def get_masters(db: AsyncSession):

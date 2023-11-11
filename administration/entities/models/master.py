@@ -4,7 +4,7 @@ from typing import List, Optional
 from sqlalchemy import String, ForeignKey, Boolean
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from salon.database import Base
+from administration.database import Base
 
 
 class Master(Base):
@@ -22,4 +22,4 @@ class Master(Base):
 
     service: Mapped["Area"] = relationship(back_populates="masters")
     tools: Mapped[List["Tool"]] = relationship(back_populates="master")
-    records: Mapped[List["Record"]] = relationship(back_populates="master")
+    spots: Mapped[List["Spot"]] = relationship(back_populates="master")

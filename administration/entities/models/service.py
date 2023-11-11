@@ -3,10 +3,10 @@ from typing import TYPE_CHECKING, List
 from sqlalchemy import String, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from salon.database import Base
+from administration.database import Base
 
 if TYPE_CHECKING:
-    from salon.entities.models.area import Area
+    from administration.entities.models.area import Area
 
 
 class Service(Base):
@@ -18,4 +18,4 @@ class Service(Base):
     area_id: Mapped[int] = mapped_column(ForeignKey("areas.id"))
 
     area: Mapped["Area"] = relationship(back_populates="services")
-    records: Mapped[List["Record"]] = relationship(back_populates="service")
+    spots: Mapped[List["Spot"]] = relationship(back_populates="service")
