@@ -1,7 +1,5 @@
 from pydantic import BaseModel
 
-from administration.entities.schemas.master import GetMaster
-
 
 class ToolCreateUpdate(BaseModel):
     title: str
@@ -10,4 +8,4 @@ class ToolCreateUpdate(BaseModel):
 
 class GetTool(BaseModel):
     title: str
-    master: GetMaster
+    master_id: int

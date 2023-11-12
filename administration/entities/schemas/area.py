@@ -2,13 +2,11 @@ from typing import List
 
 from pydantic import BaseModel
 
-from administration.entities.schemas.master import GetMaster
-from administration.entities.schemas.service import GetService
 
-
-class GetArea(BaseModel):
+class GetAreaScheme(BaseModel):
     id: int
     title: str
-    masters: List[GetMaster]
-    services: List[GetService]
 
+class AreaGet(BaseModel):
+    id:int
+    title:str
