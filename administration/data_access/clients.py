@@ -31,7 +31,7 @@ async def add_client(db: AsyncSession, client: ClientCreateUpdate):
 
 
 async def update_client(client_id: int, db: AsyncSession, client: ClientCreateUpdate):
-    _client = await get_client_by_id(client_id)
+    _client = await get_client_by_id(db, client_id)
     query = Update(Client).values(first_name=_client.first_name if not client.first_name else client.first_name,
                                   last_name=_client.last_name if not client.last_name else client.last_name,
                                   gender=_client.gender if not client.gender else client.gender,

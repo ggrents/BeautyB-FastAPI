@@ -1,11 +1,10 @@
 from sqlalchemy import select, Insert, Update
 from sqlalchemy.ext.asyncio import AsyncSession
-
-from administration.entities.models.client import Client
+from administration.entities.models.master import Master
 from administration.entities.models.record import Record
 from administration.entities.models.feedback import Feedback
-from administration.entities.schemas.feedback import FeedbackCreateUpdate
-from administration.entities.schemas.record import RecordCreateUpdate
+from administration.entities.models.spot import Spot
+
 
 
 async def get_feedbacks(db: AsyncSession):
@@ -19,17 +18,18 @@ async def get_feedback_by_id(db: AsyncSession, feedback_id: int):
     return result
 
 
-async def get_feedback_by_record(db: AsyncSession, record_id: int):
-    query = select(Feedback).where(record_id=record_id)
+async def get_feedbacks_by_master(db: AsyncSession, master_id: int):
+    query = select(Feedback).join(Record).join(Spot).join(Master).filter(Master.id == master_id)
     result = await db.execute(query)
-    return result.scalars().all()
+    feedbacks = result.scalars().all()
+    return feedbacks
 
 
 async def get_feedbacks_by_client(db: AsyncSession, client_id: int):
-    query = (select(Feedback).join(Record, Feedback.record_id == Record.id).join
-             (Client, Record.client_id == Client.id).where(Client.id == client_id))
+    query = select(Feedback).join(Record).filter(Record.client_id == client_id)
     result = await db.execute(query)
-    return result.scalars().all()
+    feedbacks = result.scalars().all()
+    return feedbacks
 
 
 async def delete_feedback(db: AsyncSession, feedback: Feedback):
@@ -38,10 +38,10 @@ async def delete_feedback(db: AsyncSession, feedback: Feedback):
 
 
 async def add_feedback(db: AsyncSession, feedback: Feedback):
-    query = Insert(Feedback).values(**feedback)
+    query = Insert(Feedback).values(estimation = feedback.estimation, record_id = feedback.record_id, comment = feedback.comment)
     await db.execute(query)
+    await db.commit()
 
-
-async def update_feedback(db: AsyncSession, feedback: Feedback):
-    query = Update(Feedback).values(**feedback)
-    await db.execute(query)
+# async def update_feedback(db: AsyncSession, feedback: Feedback):
+#     query = Update(Feedback).values(**feedback)
+#     await db.execute(query)

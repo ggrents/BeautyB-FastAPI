@@ -6,12 +6,12 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from administration.data_access import clients
 from administration.database import get_async_session
 
-from administration.entities.schemas.client import ClientCreateUpdate
+from administration.entities.schemas.client import ClientCreateUpdate, GetClient
 
 client_router = APIRouter(prefix="/clients", tags=["Clients"])
 
 
-@client_router.get("")
+@client_router.get("", response_model=list[GetClient])
 async def list_clients(db: AsyncSession = Depends(get_async_session)):
     return await clients.get_clients(db)
 
@@ -35,8 +35,8 @@ async def add_client(client: Annotated[ClientCreateUpdate, Body()],
 async def update_client(client_id: Annotated[int, Path()], client: Annotated[ClientCreateUpdate, Body()],
                         db: AsyncSession = Depends(get_async_session)):
     _serv = await clients.get_client_by_id(db, client_id)
-    return await clients.update_client(client_id, db, client)
-
+    await clients.update_client(client_id, db, client)
+    return client
 
 @client_router.delete("/{client_id}")
 async def delete_client(client_id: Annotated[int, Path()], db: AsyncSession = Depends(get_async_session)):

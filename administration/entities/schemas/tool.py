@@ -9,3 +9,4 @@ class ToolCreateUpdate(BaseModel):
 class GetTool(BaseModel):
     title: str
     master_id: int
+

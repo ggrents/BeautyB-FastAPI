@@ -18,4 +18,4 @@ class GetClient(BaseModel):
     gender: bool
     address: str
     phone: str
-    records: List[GetRecord]
+

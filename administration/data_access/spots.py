@@ -1,4 +1,4 @@
-from sqlalchemy import func, select, Insert, Update
+from sqlalchemy import func, select, Insert, Update, and_
 from sqlalchemy.ext.asyncio import AsyncSession
 from datetime import datetime, timedelta
 
@@ -20,7 +20,7 @@ async def get_spot_by_id(db: AsyncSession, spot_id: int):
 
 
 async def get_spots_by_master(db: AsyncSession, master_id: int):
-    query = select(Spot).join(Master, Spot.master_id == Master.id).where(master_id=master_id)
+    query = select(Spot).where(Spot.master_id == master_id).join(Master, Spot.master_id == Master.id)
     result = await db.execute(query)
     return result.scalars().all()
 
@@ -41,8 +41,7 @@ async def get_todays_spots(db: AsyncSession):
 async def get_todays_spots_by_service(db: AsyncSession, service_id: int):
     today = datetime.now().date()
     query = select(Spot).where(
-        (Spot.service_id == service_id),
-        (func.DATE(Spot.timestamp) == today)
+        (Spot.service_id == service_id) & (func.DATE(Spot.timestamp) == today)
     )
     result = await db.execute(query)
     return result.scalars().all()
@@ -64,10 +63,17 @@ async def delete_spot(db: AsyncSession, spot: Spot):
 
 
 async def add_spot(db: AsyncSession, spot: SpotCreateUpdate):
-    query = Insert(Spot).values(**spot)
+    query = Insert(Spot).values(timestamp=spot.timestamp, master_id=spot.master_id, service_id=spot.service_id)
     await db.execute(query)
+    await db.commit()
 
 
-async def update_spot(db: AsyncSession, spot: SpotCreateUpdate):
-    query = Update(Spot).values(**spot)
+async def update_spot(spot_id: int, db: AsyncSession, spot: SpotCreateUpdate):
+    _spot = await get_spot_by_id(db, spot_id)
+    query = Update(Spot).values(timestamp=_spot.timestamp if not spot.timestamp else spot.timestamp,
+                                master_id=_spot.master_id if not spot.master_id else spot.master_id,
+                                service_id=_spot.service_id if not spot.service_id else spot.service_id)
+
     await db.execute(query)
+    await db.commit()
+    return _spot

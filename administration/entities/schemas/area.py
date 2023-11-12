@@ -7,6 +7,7 @@ class GetAreaScheme(BaseModel):
     id: int
     title: str
 
+
 class AreaGet(BaseModel):
-    id:int
-    title:str
+    id: int
+    title: str

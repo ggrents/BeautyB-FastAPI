@@ -1,7 +1,5 @@
 from pydantic import BaseModel
 
-from administration.entities.schemas.area import GetAreaScheme
-
 
 class ServiceCreateUpdate(BaseModel):
     title: str
@@ -9,8 +7,13 @@ class ServiceCreateUpdate(BaseModel):
     area_id: int
 
 
+class AreaGet(BaseModel):
+    id: int
+    title: str
+
+
 class GetService(BaseModel):
     title: str
     price: float
-    #area_id: int
-    area: GetAreaScheme
+    area_id:int
+

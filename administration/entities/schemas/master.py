@@ -23,6 +23,6 @@ class GetMaster(BaseModel):
     gender: bool
     address: str
     phone: str
-    salary: decimal.Decimal
+    salary: float
     area_id: int
 

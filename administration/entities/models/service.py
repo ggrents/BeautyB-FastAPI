@@ -1,12 +1,7 @@
-from typing import TYPE_CHECKING, List
-
 from sqlalchemy import String, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from administration.database import Base
-from administration.entities.models.spot import Spot
-
-#from administration.entities.models.area import Area
 
 
 class Service(Base):
@@ -17,5 +12,5 @@ class Service(Base):
     price: Mapped[float] = mapped_column()
     area_id: Mapped[int] = mapped_column(ForeignKey("areas.id"))
 
-    area= relationship("Area", back_populates="services")
-    spots = relationship(Spot, back_populates="service")
+    area = relationship("Area", back_populates="services")
+    spots = relationship("Spot", back_populates="service")

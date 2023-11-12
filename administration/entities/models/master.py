@@ -5,10 +5,6 @@ from sqlalchemy import String, ForeignKey, Boolean
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from administration.database import Base
-#from administration.entities.models.area import Area
-#from administration.entities.models.service import Service
-# from administration.entities.models.spot import Spot
-# from administration.entities.models.tool import Tool
 
 
 class Master(Base):
@@ -26,5 +22,5 @@ class Master(Base):
 
     area =  relationship("Area", back_populates="masters")
     #service =  relationship("Service", back_populates="masters")
-    #tools = relationship("Tool", back_populates="master")
+    tools = relationship("Tool", back_populates="master")
     spots = relationship("Spot", back_populates="master")

@@ -2,7 +2,6 @@ from sqlalchemy import ForeignKey, String
 from sqlalchemy.orm import mapped_column, Mapped, relationship
 
 from administration.database import Base
-#from administration.entities.models.record import Record
 
 
 class Feedback(Base):

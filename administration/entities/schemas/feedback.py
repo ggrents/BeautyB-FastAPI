@@ -12,4 +12,4 @@ class FeedbackCreateUpdate(BaseModel):
 class GetFeedback(BaseModel):
     estimation: int = Field(gt=0, lt=6)
     comment: str
-    record: GetRecord
+    record_id: int

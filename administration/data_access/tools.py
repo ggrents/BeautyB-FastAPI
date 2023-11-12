@@ -17,7 +17,7 @@ async def get_tool_by_id(db: AsyncSession, tool_id: int):
 
 
 async def get_tools_by_master(db: AsyncSession, master_id: int):
-    query = select(Tool).where(master_id=master_id)
+    query = select(Tool).where(Tool.master_id==master_id)
     result = await db.execute(query)
     return result.scalars().all()
 

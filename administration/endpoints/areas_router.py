@@ -6,17 +6,17 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from administration.data_access import areas
 from administration.database import get_async_session
-
+from administration.entities.schemas.area import GetAreaScheme
 
 areas_router = APIRouter(prefix="/areas",tags=["Areas"])
 
 
-@areas_router.get("")
+@areas_router.get("", response_model=list[GetAreaScheme])
 async def list_areas(db: AsyncSession = Depends(get_async_session)):
     return await areas.get_areas(db)
 
 
-@areas_router.get("/{area_id}")
+@areas_router.get("/{area_id}", response_model=GetAreaScheme)
 async def get_area_by_id(area_id: Annotated[int, Path()], db: AsyncSession = Depends(get_async_session)):
     area = await areas.get_area_by_id(db, area_id)
     if not area:

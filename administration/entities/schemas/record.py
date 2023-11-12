@@ -1,4 +1,36 @@
+from datetime import datetime
+
 from pydantic import BaseModel
+
+
+class MasterGet(BaseModel):
+    first_name: str
+    last_name: str
+    gender: bool
+    address: str
+    phone: str
+    salary: float
+    area_id: int
+
+
+class ClientGet(BaseModel):
+    first_name: str
+    last_name: str
+    gender: bool
+    address: str
+    phone: str
+
+
+class ServiceGet(BaseModel):
+    title: str
+    price: float
+    area_id: int
+
+
+class SpotGet(BaseModel):
+    timestamp: datetime
+    master_id: int
+    service_id : int
 
 
 class RecordCreateUpdate(BaseModel):
@@ -7,5 +39,5 @@ class RecordCreateUpdate(BaseModel):
 
 
 class GetRecord(BaseModel):
-    client_id: int
-    spot_id: int
+    client: ClientGet
+    spot: SpotGet

@@ -14,5 +14,5 @@ class SpotCreateUpdate(BaseModel):
 
 class GetSpot(BaseModel):
     timestamp: datetime
-    master: GetMaster
-    service: GetService
+    master_id: int
+    service_id: int

@@ -18,7 +18,7 @@ async def get_master_by_id(db: AsyncSession, master_id: int):
 
 
 async def get_masters_by_area(db: AsyncSession, area_id: int):
-    query = select(Master).join(Area, Master.area).where(area_id=area_id)
+    query = select(Master).join(Area, Master.area).where(Master.area_id==area_id)
     result = await db.execute(query)
     return result.scalars().all()
 
@@ -38,7 +38,7 @@ async def add_master(db: AsyncSession, master: MasterCreateUpdate):
 
 
 async def update_master(master_id: int, db: AsyncSession, master: MasterCreateUpdate):
-    _master = await get_master_by_id(master_id)
+    _master = await get_master_by_id(db,master_id)
     query = Update(Master).values(first_name=_master.first_name if not master.first_name else master.first_name,
                                   last_name=_master.last_name if not master.last_name else master.last_name,
                                   gender=_master.gender if not master.gender else master.gender,
