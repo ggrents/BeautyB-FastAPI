@@ -18,6 +18,7 @@ class MasterCreateUpdate(BaseModel):
 
 
 class GetMaster(BaseModel):
+    id: int
     first_name: str
     last_name: str
     gender: bool

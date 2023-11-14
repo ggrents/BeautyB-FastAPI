@@ -9,7 +9,7 @@ from administration.endpoints.services_router import service_router
 from administration.endpoints.spots_router import spot_router
 from administration.endpoints.tools_router import tool_router
 
-app = FastAPI()
+app = FastAPI(title="Administration")
 
 app.include_router(areas_router)
 app.include_router(service_router)

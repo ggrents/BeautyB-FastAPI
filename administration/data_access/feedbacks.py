@@ -4,7 +4,7 @@ from administration.entities.models.master import Master
 from administration.entities.models.record import Record
 from administration.entities.models.feedback import Feedback
 from administration.entities.models.spot import Spot
-
+from administration.entities.schemas.feedback import FeedbackCreateUpdate
 
 
 async def get_feedbacks(db: AsyncSession):
@@ -37,7 +37,7 @@ async def delete_feedback(db: AsyncSession, feedback: Feedback):
     await db.commit()
 
 
-async def add_feedback(db: AsyncSession, feedback: Feedback):
+async def add_feedback(db: AsyncSession, feedback: FeedbackCreateUpdate):
     query = Insert(Feedback).values(estimation = feedback.estimation, record_id = feedback.record_id, comment = feedback.comment)
     await db.execute(query)
     await db.commit()
