@@ -38,10 +38,8 @@ async def delete_feedback(db: AsyncSession, feedback: Feedback):
 
 
 async def add_feedback(db: AsyncSession, feedback: FeedbackCreateUpdate):
-    query = Insert(Feedback).values(estimation = feedback.estimation, record_id = feedback.record_id, comment = feedback.comment)
+    query = Insert(Feedback).values(estimation = feedback.estimation, record_id = feedback.record_id)
     await db.execute(query)
     await db.commit()
 
-# async def update_feedback(db: AsyncSession, feedback: Feedback):
-#     query = Update(Feedback).values(**feedback)
-#     await db.execute(query)
+

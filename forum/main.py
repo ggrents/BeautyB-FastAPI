@@ -1,12 +1,13 @@
 from fastapi import FastAPI
-from motor.motor_asyncio import AsyncIOMotorClient
 
-from forum.database import db
+from forum.endpoints.comment_router import comment_router
+from forum.endpoints.review_router import review_router
 from forum.endpoints.user_router import user_router
-from forum.entities.models.user import User
-from forum.settings import MongoURL
 
-app = FastAPI(title="Microservice")
+app = FastAPI(title="Forum")
 
 
 app.include_router(user_router)
+app.include_router(review_router)
+app.include_router(comment_router)
+
