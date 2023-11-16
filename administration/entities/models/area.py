@@ -1,9 +1,7 @@
-
 from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from administration.database import Base
-
 
 
 class Area(Base):

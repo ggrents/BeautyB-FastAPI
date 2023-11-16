@@ -8,15 +8,6 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 from alembic import context
 
 from administration.database import Base
-from administration.entities.models.area import Area
-from administration.entities.models.master import Master
-from administration.entities.models.service import Service
-from administration.entities.models.tool import Tool
-from administration.entities.models.record import Record
-from administration.entities.models.client import Client
-from administration.entities.models.spot import Spot
-from administration.entities.models.feedback import Feedback
-
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
