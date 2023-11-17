@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty B</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Dosis:wght@500&family=IBM+Plex+Mono&family=Oswald&family=Play&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+     <style>
+        body {
+            font-family: 'Play', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #D8BFD8; /* нежно алый розоватый */
+        }
+
+        header {
+            background-color: #b388ff; /* фиолетовый */
+            color: #FFFFF0; /* темно-серый текст */
+            text-align: center;
+            padding: 1em;
+        }
+
+        header h1 {
+            font-size: 2em; /* увеличенный размер текста */
+        }
+
+        header h1 span {
+            color: black; /* черный цвет текста */
+            border: 2px solid black; /* черная обводка */
+            padding: 0.2em 0.5em; /* добавляем отступы вокруг текста */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #9575cd; /* темно-фиолетовый */
+            padding: 1em 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap; /* разрешаем перенос элементов на новую строку, если не хватает места */
+            justify-content: space-around; /* выравниваем элементы по центру */
+            padding: 2em;
+        }
+
+        .image-container {
+            text-align: center;
+            width: 48%; /* 48% ширины для каждой картинки, чтобы они занимали почти половину блока с учетом отступов */
+            margin-bottom: 1em; /* отступ между блоками с картинками и текстом */
+        }
+
+        .image-container img {
+            width: 600px;
+            height: 400px;
+        }
+
+        .text-container {
+            width: 100%; /* текст занимает 100% ширины */
+            text-align: center;
+            margin-bottom: 1em; /* отступ между блоками с текстом и кнопками */
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 1em; /* отступ сверху для кнопок */
+        }
+
+        .button-container button {
+            padding: 0.5em 1em;
+            font-size: 1em;
+            margin: 0 0.5em;
+        }
+
+        footer {
+            background-color: #b388ff; /* фиолетовый */
+            color: white;
+            text-align: center;
+            padding: 1em;
+            border-top: 2px solid #9575cd; /* темно-фиолетовая граница сверху */
+            clear: both; /* очищаем обтекание элементов */
+            margin-top: 30px;
+        }
+         a {
+    color: inherit; /* Использует цвет текста родительского элемента */
+
+
+}
+    </style>
+
+</head>
+<body>
+    <header>
+        <a href="/"> <h1>Beauty B</h1> </a>
+    </header>
+
+    <nav>
+        <a href="#">Услуги</a>
+        <a href="/masters">Мастера</a>
+        <a href="/catalogue">Каталог</a>
+        <a href="#">Обратная связь</a>
+    </nav>
+{% block content %}
+    <main>
+        <div class="image-container">
+            <img src="http://papik.pro/uploads/posts/2022-01/1641716276_14-papik-pro-p-kartinka-byuti-den-15.jpg" alt="Image 1">
+        </div>
+
+        <div class="image-container">
+            <img src="https://cdn.fishki.net/upload/post/201405/27/1272639/nastolcomua_40357.jpg" alt="Image 2">
+        </div>
+        <div>
+            <h2>Добро пожаловать в салон красоты Beauty B!</h2>
+            <p>Присоединяйтесь и наслаждайтесь красотой с удовольствием!</p>
+        </div>
+
+        <div class="button-container">
+    <a href="/register" class="btn btn-primary">Зарегистрироваться</a>
+    <a href="/login" class="btn btn-primary">Войти</a>
+</div>
+    </main>
+{% endblock %}
+  <footer>
+        &copy; 2023 Beauty B. Все права защищены.
+    </footer>
+
+
+</body>
+
+
+</html>

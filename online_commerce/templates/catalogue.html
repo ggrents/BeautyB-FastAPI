@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        {% for cat in cats %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="/static/images/{{cat.title}}.jpg" class="card-img-top" alt="Image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ cat.title }}</h5>
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

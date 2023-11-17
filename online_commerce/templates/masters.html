@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        {% for master in masters %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="/static/images/{{master.image_path}}" class="card-img-top" alt={{master.image_path}}>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ master.first_name }} {{ master.last_name }}</h5>
+                        <p class="card-text">Phone: {{ master.phone }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

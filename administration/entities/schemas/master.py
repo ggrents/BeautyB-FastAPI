@@ -22,6 +22,7 @@ class GetMaster(BaseModel):
     first_name: str
     last_name: str
     gender: bool
+    image_path : str
     address: str
     phone: str
     salary: float
