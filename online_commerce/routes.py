@@ -1,19 +1,21 @@
 from typing import Annotated
 
 import httpx
-from fastapi import APIRouter, HTTPException, Path, Form
+from fastapi import APIRouter, HTTPException, Path, Form, Depends
 from starlette.requests import Request
-from starlette.responses import HTMLResponse, RedirectResponse
+from starlette.responses import HTMLResponse, RedirectResponse, JSONResponse
 from starlette.templating import Jinja2Templates
+
+from online_commerce.auth.database import User
 
 templates = Jinja2Templates(directory="online_commerce/templates")
 
 html_router = APIRouter()
 
 
-@html_router.get("/", response_class=HTMLResponse)
-async def main(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+# @html_router.get("/", response_class=HTMLResponse)
+# async def main(request: Request, user: User = Depends(current_user)):
+#     return templates.TemplateResponse("index.html", {"request": request, "current_user": user})
 
 
 @html_router.get("/register", response_class=HTMLResponse)
@@ -72,9 +74,49 @@ async def services(request: Request, id: Annotated[int, Path()]):
 
 @html_router.post("/register")
 async def register(request: Request, email: str = Form(...), password: str = Form(...)):
-    print(email, password)
-    return RedirectResponse(url="/login", status_code=303)
+    url = "http://127.0.0.1:8100/auth/register"
+    data = {"email": email, "password": password, }
+
+    async with httpx.AsyncClient() as client:
+        response = await client.post(url, json=data)
+
+    if response.status_code == 201:
+
+        return RedirectResponse(url="/login", status_code=303)
+    else:
+
+        return RedirectResponse(url="/register", status_code=400)
+
 
 @html_router.post("/login")
 async def login(request: Request, email: str = Form(...), password: str = Form(...)):
-    return RedirectResponse(url="/", status_code=303)
+    url = "http://127.0.0.1:8100/auth/jwt/login"
+    data = {"username": email, "password": password}
+    print(data)
+
+    async with httpx.AsyncClient() as client:
+        response = await client.post(url, data=data)
+
+    print(response.status_code)
+    if response.status_code == 204:
+
+        return RedirectResponse(url="/", status_code=303)
+    else:
+
+        return RedirectResponse(url="/login", status_code=303)
+
+
+@html_router.get("/logout")
+async def logout(request: Request):
+    url = "http://127.0.0.1:8100/auth/jwt/logout"
+
+    async with httpx.AsyncClient() as client:
+        response = await client.post(url)
+
+    print(response.status_code)
+    if response.status_code == 204:
+
+        return RedirectResponse(url="/", status_code=303)
+    else:
+
+        return RedirectResponse(url="/", status_code=303)

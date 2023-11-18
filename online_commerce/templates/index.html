@@ -105,6 +105,12 @@
 <body>
     <header>
         <a href="/"> <h1>Beauty B</h1> </a>
+        {% if current_user %}
+    <h1 style="text-align : right; font-size : 15px;">{{ current_user.email }}</h1>
+        <a href="/logout"> <h1 style="text-align : right; font-size : 15px;">Выйти из аккаунта</h1> </a>
+{% else %}
+
+{% endif %}
     </header>
 
     <nav>
@@ -127,10 +133,20 @@
             <p>Присоединяйтесь и наслаждайтесь красотой с удовольствием!</p>
         </div>
 
-        <div class="button-container">
+          {% if current_user %}
+    <div class="button-container">
+    <a href="/records" class="btn btn-primary">Записаться в салон</a>
+    <a href="#" class="btn btn-primary">Мои записи</a>
+</div>
+{% else %}
+<div class="button-container">
     <a href="/register" class="btn btn-primary">Зарегистрироваться</a>
     <a href="/login" class="btn btn-primary">Войти</a>
 </div>
+{% endif %}
+
+
+
     </main>
 {% endblock %}
   <footer>
