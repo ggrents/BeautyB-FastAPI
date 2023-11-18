@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        {% for area in areas %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="/static/images/{{area.title}}.jpg" class="card-img-top" alt="Image">
+                    <div class="card-body">
+                          <h5 class="card-title">
+                            <a href="/services/{{ area.id }}">{{ area.title }}</a>
+                        </h5>
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

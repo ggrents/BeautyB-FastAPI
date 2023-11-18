@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        {% for s in services %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="/static/images/{{s.title}}.jpg" class="card-img-top" alt="Image" style="width: 350px; height: 200px;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{s.title}}</h5>
+                        <p class="card-text">Цена: {{ s.price }} ₸</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
