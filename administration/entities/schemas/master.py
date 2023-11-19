@@ -1,9 +1,5 @@
 import decimal
-from typing import List
-
 from pydantic import BaseModel
-
-
 
 
 class MasterCreateUpdate(BaseModel):
@@ -22,9 +18,8 @@ class GetMaster(BaseModel):
     first_name: str
     last_name: str
     gender: bool
-    image_path : str
+    image_path: str
     address: str
     phone: str
     salary: float
     area_id: int
-

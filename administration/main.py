@@ -8,8 +8,9 @@ from administration.endpoints.records_router import record_router
 from administration.endpoints.services_router import service_router
 from administration.endpoints.spots_router import spot_router
 from administration.endpoints.tools_router import tool_router
+from administration.settings import DESCRIPTION
 
-app = FastAPI(title="Administration")
+app = FastAPI(title="Administration", description=DESCRIPTION)
 
 app.include_router(areas_router)
 app.include_router(service_router)

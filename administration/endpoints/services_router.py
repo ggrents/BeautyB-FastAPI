@@ -6,7 +6,6 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from administration.data_access import services
 from administration.database import get_async_session
-
 from administration.entities.schemas.service import ServiceCreateUpdate, GetService
 
 service_router = APIRouter(prefix="/services", tags=["Services"])

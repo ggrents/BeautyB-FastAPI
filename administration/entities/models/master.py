@@ -21,6 +21,5 @@ class Master(Base):
     area_id : Mapped[int] = mapped_column(ForeignKey("areas.id"))
 
     area =  relationship("Area", back_populates="masters")
-    #service =  relationship("Service", back_populates="masters")
     tools = relationship("Tool", back_populates="master")
     spots = relationship("Spot", back_populates="master")

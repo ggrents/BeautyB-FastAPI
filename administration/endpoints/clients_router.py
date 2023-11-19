@@ -1,11 +1,11 @@
 from http.client import OK
+
 from typing import Annotated
 from fastapi import APIRouter, Depends, Path, HTTPException, Body
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from administration.data_access import clients
 from administration.database import get_async_session
-
 from administration.entities.schemas.client import ClientCreateUpdate, GetClient
 
 client_router = APIRouter(prefix="/clients", tags=["Clients"])

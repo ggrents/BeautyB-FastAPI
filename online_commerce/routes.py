@@ -1,12 +1,11 @@
 from typing import Annotated
 
 import httpx
-from fastapi import APIRouter, HTTPException, Path, Form, Depends
+from fastapi import APIRouter, Path, Form
 from starlette.requests import Request
-from starlette.responses import HTMLResponse, RedirectResponse, JSONResponse
+from starlette.responses import HTMLResponse, RedirectResponse
 from starlette.templating import Jinja2Templates
 
-from online_commerce.auth.database import User
 
 templates = Jinja2Templates(directory="online_commerce/templates")
 

@@ -10,7 +10,7 @@ from starlette.responses import JSONResponse
 from administration.database import get_async_session
 from catalogue.entities.models.image import Image
 from catalogue.entities.models.video import Video
-from catalogue.entities.schemas.image import GetFile, AddFile
+from catalogue.entities.schemas.file import GetFile, AddFile
 
 file_router = APIRouter(prefix='/upload', tags=["Files"])
 

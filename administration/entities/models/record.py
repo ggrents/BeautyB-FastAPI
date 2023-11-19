@@ -5,7 +5,6 @@ from administration.database import Base
 from administration.entities.models.feedback import Feedback
 
 
-
 class Record(Base):
     __tablename__ = "records"
     id: Mapped[int] = mapped_column(primary_key=True)
@@ -13,6 +12,6 @@ class Record(Base):
     client_id: Mapped[int] = mapped_column(ForeignKey("clients.id"))
     spot_id: Mapped[int] = mapped_column(ForeignKey("spots.id"))
 
-    client= relationship("Client", back_populates="records")
+    client = relationship("Client", back_populates="records")
     spot = relationship("Spot", back_populates="record")
     feedback = relationship(Feedback, back_populates="record")

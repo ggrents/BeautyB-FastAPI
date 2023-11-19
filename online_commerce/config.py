@@ -1,5 +1,4 @@
 DESCRIPTION = """
-Веб-приложение предназначено для удобного предоставления услуг салона красоты Beauty B. 
-Оптимизированное для клиентов и мастеров, приложение обеспечивает простой доступ к услугам, 
-профилям мастеров, контактной информации и возможности легко и быстро оформить запись.
+A web application designed for convenient provision of beauty salon services and easy entry into Beauty B. The application provides easy access to services,
+profiles of masters, contact information and the ability to easily and quickly make an entry.
 """

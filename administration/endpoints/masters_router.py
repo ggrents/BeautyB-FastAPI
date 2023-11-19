@@ -3,6 +3,7 @@ from typing import Annotated
 
 from fastapi import APIRouter, Depends, Path, HTTPException, Body
 from sqlalchemy.ext.asyncio import AsyncSession
+
 from administration.data_access import masters
 from administration.database import get_async_session
 from administration.entities.schemas.master import MasterCreateUpdate, GetMaster

@@ -1,11 +1,9 @@
 from datetime import datetime
-from typing import List
 
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import mapped_column, Mapped, relationship
 
 from administration.database import Base
-
 
 
 class Spot(Base):

@@ -1,6 +1,4 @@
-from typing import List
 from pydantic import BaseModel
-from administration.entities.schemas.record import GetRecord
 
 
 class ClientCreateUpdate(BaseModel):
@@ -18,4 +16,3 @@ class GetClient(BaseModel):
     gender: bool
     address: str
     phone: str
-
