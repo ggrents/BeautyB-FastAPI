@@ -78,7 +78,7 @@ Users can chat and leave comments on the forum.
 
 ### Endpoints
 <p align="center">
-      <img src="https://sun26-2.userapi.com/impg/ui--GkVND7NfAbYoLe4tqXXREyct-07_aUaBjQ/ZDpzYEIG6pk.jpg?size=1748x877&quality=96&sign=4d0511a631ebc9096a430d6bcc1ce2b5&type=album" height = "900" width="1500">
+      <img src="https://sun9-39.userapi.com/impg/tJZiy4wqyY_GgCg2TRU6ipHPgMkEbqsJDbLzxA/0B5LOhwSxoo.jpg?size=1504x937&quality=96&sign=30a856a5dbd64976658f369871df9f27&type=album" height = "900" width="1500">
 </p>
 
 # Contact information
