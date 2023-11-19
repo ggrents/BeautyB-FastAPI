@@ -1,4 +1,4 @@
-<p align="center">
+![image](https://github.com/ggrents/BeautyB-FastAPI/assets/143025643/b5c0749d-fe2b-4053-822f-98959e9ec116)<p align="center">
       <img src="https://sun9-39.userapi.com/impg/IjFgJsUJfksE2yVxEaxEBNscHwEwRssf0jRIdg/znR1FDnK3XU.jpg?size=290x283&quality=96&sign=aa0bd746e011421780649680d383b22f&type=album" height = "200" width="200">
 </p>
 
@@ -8,6 +8,34 @@ An application designed to simplify and facilitate the work of the beauty salon 
 
 # About
 The application is written on the basis of a microservice architecture and consists of 4 microservices, such as: Administration, Catalogue, forum and Online Commerce. Each of the applications is written using the FastAPI framework and documented in swagger. My project involves both relational databases: PostgreSQL , SQLite, and non-relational - MongoDB. The project is written entirely in asynchronous style, including asynchronous database queries using ORM and asynchronous interaction of microservices using httpx
+
+## Online commerce
+A web application designed for convenient provision of beauty salon services and easy entry into Beauty B. The application provides easy access to services,
+profiles of masters, contact information and the ability to easily and quickly make an entry.
+
+### Usage Examples
+
+<p align="center">
+      <img src="https://sun9-3.userapi.com/impg/X0BFUbI1GKf_YAXNxYJaM7IP8Cbna1IULXZFRw/C8uARzZwzFg.jpg?size=1720x965&quality=96&sign=dcbacdf97f72af154b1ab0a89b986cbe&type=album" height = "900" width="1500">
+</p>
+<p align="center">
+      <img src="https://sun9-14.userapi.com/impg/whHaEAlKq2cDaTuBK6fFDXg7mL4LwQoy1INO9g/g9JU6IS8-OI.jpg?size=1694x978&quality=96&sign=e045c4c8ed1eaa039ce0f59bb0f5a053&type=album" height = "900" width="1500">
+</p>
+<p align="center">
+      <img src="https://sun9-68.userapi.com/impg/O59EcFxk3BZQ-AWNAf_oLf_yb2NwQEwUYVWKQQ/o_Vi0FFyB6I.jpg?size=1698x969&quality=96&sign=e2c5df0d2631d125f77d13f5dbbbf751&type=album" height = "900" width="1500">
+
+</p>
+
+<p align="center">
+      <img src="https://sun9-30.userapi.com/impg/ndXsoP5R29lmj15T_a_guvBqavjGrl_BxhF1Rw/t9mZTZgxpRw.jpg?size=812x949&quality=96&sign=587864d74a8f2b84a9663d1c11ddf77b&type=album" height = "900" width="1500">
+
+</p>
+
+<p align="center">
+      <img src="https://sun9-78.userapi.com/impg/kZ638q562hHGK8tmiLne4fAkSZ-R_dD0RFNirg/qxJ9oA_5nyo.jpg?size=1773x911&quality=96&sign=d8223e8b8e209e79aa4fba341319a183&type=album" height = "900" width="1500">
+
+</p>
+
 
 ## Administration
 
@@ -32,3 +60,39 @@ The API makes accounting much easier and more reliable.
 <p align="center">
       <img src="https://sun9-21.userapi.com/impg/ui--GkVND7NfAbYoLe4tqXXREyct-07_aUaBjQ/ZDpzYEIG6pk.jpg?size=1748x877&quality=96&sign=4d0511a631ebc9096a430d6bcc1ce2b5&type=album" height = "900" width="1500">
 </p>
+
+## Catalogue
+
+Microservice, which is a set of endpoints for easy integration of the file database into the application.
+Using this API, you can easily get the entire catalog of services provided in any necessary view.
+
+### Endpoints
+<p align="center">
+      <img src="https://sun9-18.userapi.com/impg/d1me_JI4OWSUIGqSiBC7P0KGNTkgG19pJfEFBw/NCy2xp2tX34.jpg?size=1655x440&quality=96&sign=1cebcf2cfcfa131648511e7933447688&type=album" height = "900" width="1500">
+</p>
+
+## Forum
+A microservice that allows users to leave reviews of their trips to the salon, as well as interact
+and communicate with each other. This API is implemented on the basis of MongoDB, which makes it more flexible and free.
+Users can chat and leave comments on the forum.
+
+### Endpoints
+<p align="center">
+      <img src="https://sun26-2.userapi.com/impg/ui--GkVND7NfAbYoLe4tqXXREyct-07_aUaBjQ/ZDpzYEIG6pk.jpg?size=1748x877&quality=96&sign=4d0511a631ebc9096a430d6bcc1ce2b5&type=album" height = "900" width="1500">
+</p>
+
+# Contact information
+
+You can contact me for support, feedback and more information :
+
+- Telegram: @gggrents 
+
+- Mail: pip_install_gggrents@mail.ru
+
+- Instagram: @gggrents
+
+- LinkedIn: www.linkedin.com/in/gggrents
+
+
+
+
