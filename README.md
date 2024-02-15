@@ -87,7 +87,7 @@ You can contact me for support, feedback and more information :
 
 - Telegram: @gggrents 
 
-- Mail: pip_install_gggrents@mail.ru
+- Mail: grents-04@mail.ru
 
 - Instagram: @gggrents
 
